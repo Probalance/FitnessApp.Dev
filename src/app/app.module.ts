@@ -7,8 +7,9 @@ import { AboutComponent } from './about/about.component';
 import { MembershipsComponent } from './memberships/memberships.component';
 import { NavComponent } from './nav/nav.component';
 import { routes } from './app.routing';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
    declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
       AboutComponent,
       MembershipsComponent,
       NavComponent,
-      HomeComponent
+      HomeComponent,
+      ContactComponent
    ],
    imports: [
       BrowserModule,
