@@ -1,42 +1,61 @@
-<html>
-  <head>
-    <style>
-       /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
-    </style>
-  </head>
-  <div style="text-align: center">
-      <h2>Our Address</h2>
+<head>
+  <style>
+    /* Set the size of the div element that contains the map */
+
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+  </style>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col-xs col-md-6">
+      <br>
+      <h3>Contact us</h3>
+      <form>
+          <div class="form-group">
+              <label for="InputFirstName">First Name</label>
+              <input type="text" class="form-control" id="InputFirstName" aria-describedby="textHelp" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="InputLastName">Last Name</label>
+                <input type="text" class="form-control" id="InputLastName" aria-describedby="textHelp" placeholder="Last Name">
+              </div>
+        <div class="form-group">
+          <label for="InputEmail">Email address</label>
+          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="MessageTextArea">Message</label>
+          <textarea class="form-control" id="MessageTextArea" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-    <div>
-      <p>
-        6380 Powers Ferry Rd NW #201, Atlanta, GA 30339
-      </p>
+    <div class="col-xs col-md-6">
+      <br>
+      <h3>Visit our location</h3>
+      <!--The div element for the map -->
+      <div id="map"></div>
     </div>
+  </div>
+  <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Phone - (770) 952-1336
+        <i class="fas fa-phone"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Email - info@probalancefitnes.com
+        <i class="fas fa-envelope"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Address - 6380 Powers Ferry Rd, Atlanta, GA 30339
+        <i class="fas fa-map-marked-alt"></i>
+      </li>
+    </ul>
+</div>
 <br>
-  <h3>Come visit our location</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var probal = {lat: 33.8934977, lng: -84.40937559999998};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: probal});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: probal, map: map});
-}
-    </script>
-    <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5J4iPzVjHFahU3Q2NMChznQfdOBK9REg&callback=initMap">
-    </script>

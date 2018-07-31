@@ -19,5 +19,18 @@
 </head>
 <body>
   <app-root></app-root>
+  <script>
+      // Initialize and add the map
+      function initMap() {
+        var probal = {lat: 33.9043325, lng: -84.4312231};
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 13, center: probal});
+        var marker = new google.maps.Marker({position: probal, map: map});
+        //var street = new google.maps.street({position: probal});
+      }
+          </script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5J4iPzVjHFahU3Q2NMChznQfdOBK9REg&callback=initMap">
+</script>
 </body>
 </html>
