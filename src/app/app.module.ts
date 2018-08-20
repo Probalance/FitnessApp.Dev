@@ -10,22 +10,30 @@ import { routes } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { GooglemapComponent } from './contact/googlemap/googlemap.component';
+import { GoogleMapService } from './googleMap.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      BootcampComponent,
-      AboutComponent,
-      MembershipsComponent,
-      NavComponent,
-      HomeComponent,
-      ContactComponent
-   ],
-   imports: [
-      BrowserModule,
-      RouterModule.forRoot(routes)
+  declarations: [
+    AppComponent,
+    BootcampComponent,
+    AboutComponent,
+    MembershipsComponent,
+    NavComponent,
+    HomeComponent,
+    ContactComponent,
+    GooglemapComponent,
   ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [GoogleMapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

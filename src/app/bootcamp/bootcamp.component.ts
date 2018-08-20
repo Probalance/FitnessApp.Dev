@@ -11,5 +11,4 @@ export class BootcampComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

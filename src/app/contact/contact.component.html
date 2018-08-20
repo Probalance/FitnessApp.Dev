@@ -9,31 +9,37 @@
       /* The width is the width of the web page */
     }
   </style>
+  <!-- Site from https://developers.google.com/recaptcha/docs/v3 -->
+  <script src='https://www.google.com/recaptcha/api.js?render=6Lcw2WkUAAAAAM4rpKj9eLjvKwcjVOuAaPT3Xkmx'></script>
 </head>
+
 <div class="container">
   <div class="row">
     <div class="col-xs col-md-6">
       <br>
       <h3>Contact us</h3>
       <form>
-          <div class="form-group">
-              <label for="InputFirstName">First Name</label>
-              <input type="text" class="form-control" id="InputFirstName" aria-describedby="textHelp" placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <label for="InputLastName">Last Name</label>
-                <input type="text" class="form-control" id="InputLastName" aria-describedby="textHelp" placeholder="Last Name">
-              </div>
         <div class="form-group">
-          <label for="InputEmail">Email address</label>
-          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input type="text" class="form-control" id="first" aria-describedby="textHelp" placeholder="First Name" [(ngModel)]="data.first" name="first" required>
         </div>
         <div class="form-group">
-          <label for="MessageTextArea">Message</label>
-          <textarea class="form-control" id="MessageTextArea" rows="3"></textarea>
+          <input type="text" class="form-control" id="last" aria-describedby="textHelp" placeholder="Last Name"  [(ngModel)]="data.last" name="last" required>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="data.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <input type="phone" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" [(ngModel)]="data.mobile" name="mobile" required>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" [(ngModel)]="data.subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" [(ngModel)]="data.message" name="messsge"  maxlength="140" rows="7"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="save(data.first, data.last, data.email, data.mobile, data.subject, data.message)">Submit</button>
       </form>
     </div>
     <div class="col-xs col-md-6">
@@ -44,18 +50,18 @@
     </div>
   </div>
   <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Phone - (770) 952-1336
-        <i class="fas fa-phone"></i>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Email - info@probalancefitnes.com
-        <i class="fas fa-envelope"></i>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Address - 6380 Powers Ferry Rd, Atlanta, GA 30339
-        <i class="fas fa-map-marked-alt"></i>
-      </li>
-    </ul>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Phone - (770) 952-1336
+      <i class="fas fa-phone"></i>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Email - info@probalancefitnes.com
+      <i class="fas fa-envelope"></i>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Address - 6380 Powers Ferry Rd, Atlanta, GA 30339
+      <i class="fas fa-map-marked-alt"></i>
+    </li>
+  </ul>
 </div>
 <br>
