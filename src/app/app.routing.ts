@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'memberships', component: MembershipsComponent },
   { path: 'bootcamp', component: BootcampComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'}
+  { path: '', redirectTo: '/', pathMatch: 'full'}
 
 ];
 
