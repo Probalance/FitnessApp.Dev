@@ -39,7 +39,8 @@
         <div class="form-group">
           <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" [(ngModel)]="data.message" name="messsge"  maxlength="140" rows="7"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="save(data.first, data.last, data.email, data.mobile, data.subject, data.message)">Submit</button>
+        <button type="submit" id="submit" class="btn btn-primary" (click)="save(data.first, data.last, data.email, data.mobile, data.subject, data.message)">Submit</button>
+        <span id="message"></span>
       </form>
     </div>
     <div class="col-xs col-md-6">
