@@ -14,44 +14,42 @@
 </head>
 
 <div class="container">
-<br>
-<br>
- <!-- <div class="row">
+  <br>
+  <br>
+  <div class="row">
     <div class="col-xs col-md-6">
       <br>
       <h3>Contact us</h3>
-       <form>
+      <form>
         <div class="form-group">
-          <input type="text" class="form-control" id="first" aria-describedby="textHelp" placeholder="First Name" [(ngModel)]="data.first" name="first" required>
+          <input type="text" class="form-control" id="from" aria-describedby="textHelp" placeholder="from"
+            [(ngModel)]="data.from" name="from" required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="last" aria-describedby="textHelp" placeholder="Last Name"  [(ngModel)]="data.last" name="last" required>
+          <input type="text" class="form-control" id="subject" aria-describedby="textHelp" placeholder="subject"
+            [(ngModel)]="data.subject" name="subject" required>
         </div>
         <div class="form-group">
         </div>
         <div class="form-group">
-          <input type="email" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="data.email" name="email" required>
+          <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" [(ngModel)]="data.subject"
+            name="subject" required>
         </div>
         <div class="form-group">
-          <input type="phone" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" [(ngModel)]="data.mobile" name="mobile" required>
+          <textarea class="form-control" type="textarea" id="text" name="text" placeholder="text" [(ngModel)]="data.text"
+            name="text" maxlength="140" rows="7"></textarea>
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" [(ngModel)]="data.subject" name="subject" required>
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" [(ngModel)]="data.message" name="messsge"  maxlength="140" rows="7"></textarea>
-        </div>
-        <button type="submit" id="submit" class="btn btn-primary" (click)="save(data.first, data.last, data.email, data.mobile, data.subject, data.message)">Submit</button>
+        <button type="submit" id="submit" class="btn btn-primary" (click)="save(data.from, data.subject, data.text)">Submit</button>
         <span id="message"></span>
       </form>
     </div>
     <div class="col-xs col-md-6">
       <br>
       <h3>Visit our location</h3>
-      The div element for the map
+      <!-- The div element for the map -->
       <div id="map"></div>
     </div>
-  </div>-->
+  </div>
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center">
       Phone - (770) 952-1336
@@ -68,3 +66,4 @@
   </ul>
 </div>
 <br>
+<script type="text/javascript" src="js/server.js"></script>

@@ -18,16 +18,13 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() { }
 
-
-  save(first, last, email, mobile, subject, message) {
-    this.data['first'] = first;
-    this.data['last'] = last;
-    this.data['email'] = email;
-    this.data['mobile'] = mobile;
+  save( from, text,subject ) {
+    this.data['to'] = 'work.brien@gmail.com';
+    this.data['from'] = from;
     this.data['subject'] = subject;
-    this.data['message'] = message;
+    this.data['text'] = text;
     console.log(this.data);
-    this.http.put<any>('http://localhost/api/v1/update', this.data).subscribe(
+    this.http.post<any>('/email', this.data).subscribe(
       res => {
         console.log(res);
       },
@@ -39,7 +36,6 @@ export class ContactComponent implements OnInit {
         }
       });
   }
-
 // grecaptcha.ready(function () {
 //   grecaptcha.execute('6Lcw2WkUAAAAAM4rpKj9eLjvKwcjVOuAaPT3Xkmx', { action: 'homepage' })
 //     .then(function (token) {

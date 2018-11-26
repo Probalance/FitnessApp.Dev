@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng="probalance">
 
 <head>
   <meta charset="utf-8">
@@ -36,25 +36,6 @@
       //var street = new google.maps.street({position: probal});
     }
   </script>
-
-  <script>
-$(document).ready(function(){
-    var from,to,subject,text;
-    $("#submit").click(function(){      
-        to=$("#email").val();
-        subject=$("#subject").val();
-        text=$("#message").val();
-        $("#status").text("Sending E-mail...Please wait");
-        $.get("http://localhost:3000/send",{to:to,subject:subject,text:text},function(data){
-        if(data=="sent")
-        {
-            $("#status").empty().html("Email is been sent at "+to+" . Please check inbox!");
-        }
-});
-    });
-});
-</script>
-
 </body>
-
 </html>
+
