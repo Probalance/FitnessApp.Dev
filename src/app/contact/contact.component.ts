@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { SendgridService } from './service/sendgrid.service'
 
 @Component({
   selector: 'app-contact',
@@ -11,10 +11,7 @@ export class ContactComponent implements OnInit {
   title = 'Contact';
   public data: any = []
 
-
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private sendgridService: SendgridService){}
 
   ngOnInit() { }
 
