@@ -35,7 +35,7 @@
           <textarea class="form-control" type="textarea" id="text" name="text" placeholder="text" [(ngModel)]="data.text"
             name="text" maxlength="140" rows="7"></textarea>
         </div>
-        <button type="submit" id="submit" class="btn btn-primary" (click)="save(data.from, data.subject, data.text)">Submit</button>
+        <button type="submit" id="submit" class="btn btn-primary" (click)="send(data.from, data.subject, data.text)">Submit</button>
         <span id="message"></span>
       </form>
     </div>
@@ -62,4 +62,4 @@
   </ul>
 </div>
 <br>
-<script type="text/javascript" src="js/server.js"></script>
+<script type="text/javascript" src="../../sendgrid.js"></script>

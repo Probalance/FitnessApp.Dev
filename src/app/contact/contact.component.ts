@@ -1,5 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { SendgridService } from './service/sendgrid.service'
 
 @Component({
   selector: 'app-contact',
@@ -11,30 +12,19 @@ export class ContactComponent implements OnInit {
   title = 'Contact';
   public data: any = []
 
-
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private sendgridService: SendgridService){}
 
   ngOnInit() { }
 
-  save( from, text,subject ) {
+
+  send(from, text, subject){
     this.data['to'] = 'work.brien@gmail.com';
     this.data['from'] = from;
     this.data['subject'] = subject;
     this.data['text'] = text;
     console.log(this.data);
-    this.http.post<any>('/email', this.data).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Client-side error occured. ");
-        } else {
-          console.log("Server-side error occurred.");
-        }
-      });
+    this.sendgridService.send(this.data)
+    console.log("Testing http data service: " + from + " " + subject+ " " + text);
   }
 // grecaptcha.ready(function () {
 //   grecaptcha.execute('6Lcw2WkUAAAAAM4rpKj9eLjvKwcjVOuAaPT3Xkmx', { action: 'homepage' })
