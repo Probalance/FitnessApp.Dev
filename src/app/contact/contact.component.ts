@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { SendgridService } from './service/sendgrid.service'
+import { SendgridService } from '././service/sendgrid.service'
 
 @Component({
   selector: 'app-contact',
