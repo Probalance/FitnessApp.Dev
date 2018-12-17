@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
   //constructor(private sendgridService: SendgridService){}
 
   ngOnInit() { }
-  private url = 'https://us-central1-probalance-214005.cloudfunctions.net/httpEmail?sg_key=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';
+  private url = 'https://us-central1-probalance-214005.cloudfunctions.net/httpEmail?sg_key=';
 
   constructor(private _http: HttpClient, sendgridSevice: SendgridService) { }
   send() {
