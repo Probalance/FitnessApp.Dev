@@ -36,6 +36,7 @@
             name="text" maxlength="140" rows="7"></textarea>
         </div>
         <button type="submit" id="submit" class="btn btn-primary" (click)="send(data.from, data.subject, data.text)">Submit</button>
+        <br><br><button type="submit" id="submit" class="btn btn-primary" (click)="send()">Sendgrid Email</button>
         <span id="message"></span>
       </form>
     </div>
