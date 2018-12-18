@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { SendgridService } from '././service/sendgrid.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -23,10 +22,10 @@ export class ContactComponent implements OnInit {
   //constructor(private sendgridService: SendgridService){}
 
   ngOnInit() { }
-  private url = 'https://us-central1-probalance-214005.cloudfunctions.net/httpEmail?sg_key=';
 
   constructor(private _http: HttpClient, sendgridSevice: SendgridService) { }
   send() {
+    let url = `https://us-central1-probalance-214005.cloudfunctions.net/httpEmail`;
     let params: URLSearchParams = new URLSearchParams();
 
     params.set('to', 'work.brien@gmail.com');
@@ -34,20 +33,14 @@ export class ContactComponent implements OnInit {
     params.set('subject', 'test-email');
     params.set('content', 'Hey! Your API implementation work!');
 
-    return this._http.post(this.url, params, httpOptions).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Client Side Error : " + err.error.message)
-          console.log("Here is my payload" + params)
-        } else {
-          console.log("Server Side Error  : " + err.message + " " + err.type)
-          console.log("Here is my payload " + params)
-        }
-
-      });
+    return this._http.post(url, params, httpOptions)
+                     .toPromise()
+                     .then( res => {
+                       console.log("Here's your API reponse: " + res)
+                     })
+                     .catch(err => {
+                       console.log("You done messed up A-A-ron: " + err)
+                     })
 
     // grecaptcha.ready(function () {
     //   grecaptcha.execute('6Lcw2WkUAAAAAM4rpKj9eLjvKwcjVOuAaPT3Xkmx', { action: 'homepage' })
