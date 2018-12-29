@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 const httpOptions = {
   headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*',
                              'Content-Type': 'application/json', 
-                             'Authorization': 'Bearer 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' })
+                             'Authorization': 'Bearer <<API-Key>>' })
 };
 
 @Component({
