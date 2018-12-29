@@ -3,10 +3,9 @@ import { SendgridService } from '././service/sendgrid.service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  }),
+  headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*',
+                             'Content-Type': 'application/json', 
+                             'Authorization': 'Bearer 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' })
 };
 
 @Component({
@@ -14,6 +13,7 @@ const httpOptions = {
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
+
 export class ContactComponent implements OnInit {
 
   title = 'Contact';
@@ -24,22 +24,28 @@ export class ContactComponent implements OnInit {
   ngOnInit() { }
 
   constructor(private _http: HttpClient, sendgridSevice: SendgridService) { }
-  send() {
-    let url = `https://us-central1-probalance-214005.cloudfunctions.net/httpEmail`;
-    let params: URLSearchParams = new URLSearchParams();
+  send( from, text, subject ) {
+    this.data['to'] = 'work.brien@gmail.com';
+    this.data['from'] = 'brienacalloway';
+    this.data['subject'] = 'Angular API test';
+    this.data['content'] = 'Successfully sent email from Angular App Conrats!';
+    console.log(this.data);
 
-    params.set('to', 'work.brien@gmail.com');
-    params.set('from', 'you@yoursupercoolapp.com');
-    params.set('subject', 'test-email');
-    params.set('content', 'Hey! Your API implementation work!');
+    let url = `https://us-central1-probalance-214005.cloudfunctions.net/httpEmail?<<API-Key>>`;
 
-    return this._http.post(url, params, httpOptions)
+    // params.set('sg_key', '<<API-Keys>>')
+    // params.append('to', 'work.brien@gmail.com');
+    // params.append('from', 'you@yoursupercoolapp.com');
+    // params.append('subject', 'test-email');
+    // params.append('content', 'Hey! Your API implementation work!');
+
+    return this._http.post(url, this.data, httpOptions)
                      .toPromise()
-                     .then( res => {
-                       console.log("Here's your API reponse: " + res)
+                     .then( req => {
+                       console.log("Here's your API reponse: " + req)
                      })
                      .catch(err => {
-                       console.log("You done messed up A-A-ron: " + err)
+                       console.log("You done messed up A-A-ron: " + err);
                      })
 
     // grecaptcha.ready(function () {
